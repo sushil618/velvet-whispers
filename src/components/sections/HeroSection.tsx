@@ -2,6 +2,19 @@ import { motion } from 'framer-motion';
 import { FloatingGirl } from '@/components/FloatingGirl';
 import { useParallax } from '@/hooks/useParallax';
 import violetImg from '@/assets/girls/violet.png';
+import ariaImg from '@/assets/girls/aria.png';
+import lunaImg from '@/assets/girls/luna.png';
+import mikaImg from '@/assets/girls/mika.png';
+import sakuraImg from '@/assets/girls/sakura.png';
+import jadeImg from '@/assets/girls/jade.png';
+
+const avatars = [
+  { src: ariaImg, name: 'Aria' },
+  { src: lunaImg, name: 'Luna' },
+  { src: mikaImg, name: 'Mika' },
+  { src: sakuraImg, name: 'Sakura' },
+  { src: jadeImg, name: 'Jade' },
+];
 
 export const HeroSection = () => {
   const { mouseX, mouseY } = useParallax();
@@ -54,7 +67,7 @@ export const HeroSection = () => {
           </motion.h1>
 
           <motion.p
-            className="text-muted-foreground text-lg font-light leading-relaxed mb-10"
+            className="text-muted-foreground text-lg font-light leading-relaxed mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -62,11 +75,59 @@ export const HeroSection = () => {
             Meet beautiful AI girls who remember, respond, and connect.
           </motion.p>
 
+          {/* Avatar row */}
+          <motion.div
+            className="mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.85 }}
+          >
+            <p className="text-muted-foreground/70 text-sm font-light mb-3 tracking-wide">
+              Choose who you connect with
+            </p>
+            <div className="relative flex items-center">
+              {/* Avatars container with gradient mask */}
+              <div className="flex -space-x-2 relative">
+                {avatars.map((avatar, index) => (
+                  <motion.div
+                    key={avatar.name}
+                    className="relative w-11 h-11 rounded-full border-2 border-background overflow-hidden bg-secondary"
+                    style={{ zIndex: avatars.length - index }}
+                    whileHover={{ scale: 1.1, zIndex: 10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <img
+                      src={avatar.src}
+                      alt={avatar.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </motion.div>
+                ))}
+                {/* +3 avatar */}
+                <motion.div
+                  className="relative w-11 h-11 rounded-full border-2 border-background overflow-hidden bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center"
+                  style={{ zIndex: 0 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="text-xs font-medium text-foreground/80">+3</span>
+                </motion.div>
+              </div>
+              {/* Soft gradient fade on right */}
+              <div 
+                className="absolute right-0 top-0 bottom-0 w-12 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(to right, transparent, hsl(var(--background)))',
+                }}
+              />
+            </div>
+          </motion.div>
+
           <motion.button
             className="btn-romantic"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            transition={{ duration: 0.8, delay: 1 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
