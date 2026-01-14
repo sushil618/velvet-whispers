@@ -135,7 +135,7 @@ export const HeroSection = () => {
           </motion.button>
         </motion.div>
 
-        {/* Right side - Floating Girl with orbit stack */}
+        {/* Right side - Floating Girl */}
         <div className="relative flex-shrink-0 mr-12">
           {/* Extra large backdrop glow */}
           <div 
@@ -145,58 +145,6 @@ export const HeroSection = () => {
               filter: 'blur(60px)',
             }}
           />
-          
-          {/* Orbit stack - blurred avatars behind main girl */}
-          <motion.div
-            className="absolute -left-16 top-1/2 -translate-y-1/2 flex flex-col gap-4 -z-10"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1.2 }}
-          >
-            <motion.div
-              className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20 opacity-50"
-              style={{ filter: 'blur(2px)' }}
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-            >
-              <img src={ariaImg} alt="" className="w-full h-full object-cover object-top" />
-            </motion.div>
-            <motion.div
-              className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/15 opacity-40 -ml-4"
-              style={{ filter: 'blur(3px)' }}
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-            >
-              <img src={lunaImg} alt="" className="w-full h-full object-cover object-top" />
-            </motion.div>
-          </motion.div>
-
-          {/* Right side orbit stack */}
-          <motion.div
-            className="absolute -right-12 top-1/3 flex flex-col gap-5 -z-10"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1.4 }}
-          >
-            <motion.div
-              className="w-14 h-14 rounded-full overflow-hidden border-2 border-accent/20 opacity-45"
-              style={{ filter: 'blur(2px)' }}
-              animate={{ y: [0, -7, 0] }}
-              transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-            >
-              <img src={mikaImg} alt="" className="w-full h-full object-cover object-top" />
-            </motion.div>
-            <motion.div
-              className="w-12 h-12 rounded-full overflow-hidden border-2 border-accent/15 opacity-35 ml-2"
-              style={{ filter: 'blur(3px)' }}
-              animate={{ y: [0, -4, 0] }}
-              transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-            >
-              <img src={sakuraImg} alt="" className="w-full h-full object-cover object-top" />
-            </motion.div>
-          </motion.div>
-
-          {/* Main girl */}
           <FloatingGirl
             src={violetImg}
             name="Violet"
@@ -204,16 +152,6 @@ export const HeroSection = () => {
             depth={0.8}
             glowColor="hsl(280 70% 50% / 0.4)"
           />
-
-          {/* Micro-copy */}
-          <motion.p
-            className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground/50 text-xs tracking-widest whitespace-nowrap"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
-          >
-            + 5 more personalities
-          </motion.p>
         </div>
       </div>
 
